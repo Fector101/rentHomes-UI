@@ -262,9 +262,11 @@ footer .second-container .links-box {
 }
 
 footer .second-container>.links-box {
-    display: flex;
 
+    display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 footer .second-container>div h3 {
@@ -402,14 +404,14 @@ footer .foot-note {
 
     }
 
-    /* section.first {
+    section.first {
         background-image: url('imgs/hero-image.png');
     }
 
+   
     section.second {
         background-image: url('imgs/home.png');
-
-    } */
+    }
 
     section.second {
         background-size: cover;
@@ -420,13 +422,15 @@ footer .foot-note {
     section.first {
         background-size: 60%;
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: right;
     }
 
     section.first::before {
         content: "";
         position: absolute;
         top: 0;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.56), white);
+        height: 100%;
         /* background-image: linear-gradient(rgb(255, 255, 255), rgba(202, 252, 202, 0.783), rgb(125, 240, 125), #60f222); */
         /* height: 100%; */
         width: calc(100% - 30px);
@@ -436,15 +440,20 @@ footer .foot-note {
     section.second::before {
         content: "";
         position: absolute;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.837), white);
+        width: 100%;
         /* background-image: linear-gradient(#ffffffc3, #bff5a6eb, #7df07d, white); */
         /* width: 100%; */
         height: 100%;
     }
 
-    section.reviews h3,section.reviews p,section.reviews ol{
+    section.reviews h3,
+    section.reviews p,
+    section.reviews ol {
         position: relative;
         z-index: 1;
     }
+
     section.reviews::before {
         content: "";
         box-sizing: border-box;
@@ -477,7 +486,8 @@ footer .foot-note {
     section.second button {
         float: right;
     }
-    footer{
+
+    footer {
         /* background-image: linear-gradient(rgb(255, 255, 255), rgb(166, 249, 130)); */
     }
 
@@ -509,6 +519,11 @@ footer .foot-note {
         background-size: 70%;
         padding-bottom: 0;
     }
+
+    footer {
+        padding: 0 3rem;
+        padding-bottom: 2rem;
+    }
 }
 
 @media (max-width: 450px) {
@@ -535,9 +550,15 @@ footer .foot-note {
         font-size: 1.7rem;
         margin-block: 1.5rem;
     }
+
     section .readable-box,
     section.second .readable-box {
         width: calc(100% - 2rem);
+    }
+
+    footer {
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
 
 }
