@@ -1,3 +1,10 @@
+.debug-box{
+    position: absolute;
+    width: 100%;
+    background-color: rgba(255, 255, 0, 0.7);
+    z-index: 3;
+    height: 100px;
+}
 * {
     margin: 0;
     padding: 0;
@@ -8,6 +15,7 @@ button {
     border: 1px solid #0d451280;
     font-family: "Outfit", sans-serif;
     color: black;
+    background-color: #fff;
 }
 
 li,
@@ -36,6 +44,10 @@ header {
     justify-content: space-between;
     padding: 2rem 3rem;
     padding-top: 2.1rem;
+    position: sticky;
+    top: 0;
+    background-image: linear-gradient(white, #ffffffdd);
+    z-index: 2;
 }
 
 .brand-box {
@@ -58,8 +70,19 @@ header nav a {
     font-size: 15px;
     color: #475C46;
     font-weight: 500;
-}
+    position: relative;
 
+}
+header nav a.active::after{
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    left: 0;
+    bottom: -4px;
+    background-color: rgb(185, 244, 67);
+    border-radius: 10px;
+}
 header nav ul {
     display: flex;
 }
@@ -106,7 +129,9 @@ section.first .btns-box {
     gap: 10px;
     width: max-content;
 }
-
+/* section.second {
+    border: 1px solid gray;
+} */
 section.second img {
     --size: 16.3rem;
     height: var(--size);
@@ -173,7 +198,7 @@ section.services .cards-box li img {
     width: var(--size);
 }
 
-section.reviews {
+section.reviews,section.services {
     text-align: center;
 }
 
@@ -328,9 +353,10 @@ footer .foot-note {
         flex-direction: column;
         gap: 3rem;
     }
-
-    footer .first-container {
-        justify-items: end;
+    
+    footer .first-container > *{
+        margin-left: auto;
+        width: max-content;
     }
 
     footer .foot-note {
@@ -447,12 +473,12 @@ footer .foot-note {
         height: 100%;
     }
 
-    section.reviews h3,
+    /* section.reviews h3,
     section.reviews p,
     section.reviews ol {
         position: relative;
         z-index: 1;
-    }
+    } */
 
     section.reviews::before {
         content: "";

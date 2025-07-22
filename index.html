@@ -10,10 +10,12 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <script src="style.js" defer ></script>
     <title>rentHomes</title>
 </head>
 
 <body>
+    <!-- <div class="debug-box"></div> -->
     <header>
         <div class="brand-box">
             <h1> <span>rent</span>Homes</h1>
@@ -22,11 +24,11 @@
         </div>
         <nav>
             <ul>
-                <li><a href="">Home</a></li>
-                <li> <a href="">About Us</a></li>
-                <li> <a href="">Services</a></li>
-                <li> <a href="">Reviews</a></li>
-                <li> <a href="">Contant Us</a></li>
+                <li><a class="home active" href="">Home</a></li>
+                <li> <a class="about-us" href="">About Us</a></li>
+                <li> <a class="services" href="">Services</a></li>
+                <li> <a class="reviews" href="">Reviews</a></li>
+                <li> <a class="contact-us" href="">Contact Us</a></li>
             </ul>
         </nav>
         <button class="menu-btn">
@@ -34,7 +36,7 @@
         </button>
     </header>
 
-    <section class="first">
+    <section class="first hero">
         <div class="readable-box">
             <h3>Your<br>
                 Rental Journey<br>
@@ -49,7 +51,7 @@
         <img src="imgs/hero-image.png" alt="Hero Image" width="600" height="400">
     </section>
 
-    <section class="second">
+    <section class="second about-us">
         <img src="imgs/home.png" alt="">
         <div class="readable-box">
             <h3>Begin<br>
@@ -119,7 +121,7 @@
         </ol>
     </section>
 
-    <footer>
+    <footer id="contact-us-section">
         <div class="first-container">
             <div class="brand-box">
                 <h1> <span>rent</span>Homes</h1>
