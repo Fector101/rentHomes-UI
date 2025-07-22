@@ -436,11 +436,11 @@ footer .foot-note {
 
    
     section.second {
-        background-image: url('imgs/home.png');
+        background-image: url('imgs/home-phone.jpg');
     }
 
     section.second {
-        background-size: cover;
+        background-size: 100% 80%;
         background-repeat: no-repeat;
         background-position: center;
     }
