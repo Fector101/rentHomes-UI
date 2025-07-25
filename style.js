@@ -27,3 +27,14 @@ function scrollListener(e) {
 }
 
 window.addEventListener('scroll', scrollListener)
+
+
+const headerBtn = document.querySelector('header button')
+const headerBtnCloseImg = document.querySelector('header button .close-img')
+const headerBtnOpenImg = document.querySelector('header button .open-img')
+const navBarEle = document.querySelector('header nav')
+headerBtn.addEventListener('click',function(){
+    navBarEle.classList.toggle('nav-open')
+    headerBtnCloseImg.classList.toggle('display-none')
+    headerBtnOpenImg.classList.toggle('display-none')
+})

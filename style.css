@@ -1,9 +1,11 @@
-.debug-box{
-}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.display-none {
+    display: none;
 }
 
 button {
@@ -66,9 +68,31 @@ header nav a {
     color: #475C46;
     font-weight: 500;
     position: relative;
+    /* width: 70px; */
+    text-align: center;
+    display: block;
+    /* background-color: black; */
+    border-bottom: 1px solid white;
 
 }
-header nav a.active::after{
+
+nav a:hover {
+    color: rgb(36, 51, 6) !important;
+    border-bottom: 1px solid rgb(185, 244, 67);
+    background-color: rgba(220, 220, 220, 0.579);
+    border-radius: 5px;
+}
+
+header nav a.active {
+    border-bottom: none;
+
+}
+
+header a.active:hover {
+    background-color: rgb(185, 244, 67);
+}
+
+header nav a.active::after {
     content: "";
     position: absolute;
     height: 4px;
@@ -78,6 +102,7 @@ header nav a.active::after{
     background-color: rgb(185, 244, 67);
     border-radius: 10px;
 }
+
 header nav ul {
     display: flex;
 }
@@ -122,8 +147,9 @@ section.first img {
 section.first .btns-box {
     display: flex;
     gap: 10px;
-    width: max-content;
+    flex-wrap: wrap;
 }
+
 /* section.second {
     border: 1px solid gray;
 } */
@@ -193,7 +219,8 @@ section.services .cards-box li img {
     width: var(--size);
 }
 
-section.reviews,section.services {
+section.reviews,
+section.services {
     text-align: center;
 }
 
@@ -260,17 +287,55 @@ footer {
     /*background-color: #D0D1D770;D0D1D7*/
     background-image: linear-gradient(white, rgba(171, 222, 105, 0.2))
 }
-.debug-box{
-  position: fixed;
-  bottom:0;
+
+.debug-box {
+    position: fixed;
+    bottom: 0;
     width: 100%;
     z-index: 3;
     height: 20px;
-  pointer-events: none;
-  backdrop-filter: blur(0.6px);
+    pointer-events: none;
+    backdrop-filter: blur(0.6px);
 }
+
 footer .socials {
     display: flex;
+}
+footer .socials .facebook:hover{
+    background: rgb(0, 157, 255);
+    border-color: #009dff;
+}
+
+footer .socials .instagram:hover{
+    background-image: linear-gradient(#ef2c2c,#e73ce7a3,#ffff00b2);
+    border-color: rgb(237, 87, 182);
+}
+footer .socials .twitter:hover{
+    --color: #0692ea;
+    background: var(--color);
+    border-color: var(--color);
+}
+footer .socials li:hover svg{
+    fill: white;
+}
+footer .socials li {
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 60%;
+    --size: 35px;
+    padding: 5px;
+    margin-right: 15px;
+    margin-block: 1rem 1.2rem;
+    height: var(--size);
+    width: var(--size);
+}
+
+footer .socials li a {
+    --size: 100%;
+    height: var(--size);
+    width: var(--size);
 }
 
 footer p.phrase {
@@ -325,6 +390,7 @@ footer .foot-note {
     font-size: 13px;
 }
 
+
 @media (max-width: 1024px) {
     section.first {
         /* background-color: yellowgreen; */
@@ -358,16 +424,18 @@ footer .foot-note {
         flex-direction: column;
         gap: 3rem;
     }
-    
-    footer .first-container > *{
+
+    footer .first-container>* {
         margin-left: auto;
         width: max-content;
+        max-width: 100%;
     }
 
     footer .foot-note {
         align-self: center;
         /* color: yellowgreen; */
         width: auto;
+        text-align: center;
     }
 }
 
@@ -439,7 +507,7 @@ footer .foot-note {
         background-image: url('imgs/hero-image.png');
     }
 
-   
+
     section.second {
         background-image: url('imgs/home-phone.jpg');
     }
@@ -526,20 +594,40 @@ footer .foot-note {
 
 .menu-btn {
     display: none;
+    --size: 30px;
+    height: var(--size);
+    width: var(--size);
+    padding: 3px;
+    border-radius: 3px;
+    border: none;
+    background-color: transparent;
+}
+
+.menu-btn:hover {
+    background-color: rgb(219, 217, 217);
+    cursor: pointer;
 }
 
 @media (max-width: 650px) {
     nav {
-        display: none;
+        position: fixed;
+        border-top: 1px solid rgb(162, 162, 162);
+        width: 100%;
+        left: 0;
+        background-color: white;
+        border-radius: 50px 50px 0 0;
+        padding: 2.5rem 1.4rem;
+        bottom: -100%;
+        background-color: #fff;
+        transition: bottom 0.3s ease-in-out;
+    }
+
+    nav.nav-open {
+        bottom: 0;
     }
 
     .menu-btn {
         display: flex;
-        --size: 30px;
-        height: var(--size);
-        width: var(--size);
-        border: none;
-        background-color: transparent;
     }
 
     section.first {
@@ -554,6 +642,52 @@ footer .foot-note {
     footer {
         padding: 0 3rem;
         padding-bottom: 2rem;
+    }
+
+    header:has(nav.nav-open):after {
+        position: fixed;
+        content: "";
+        top: 0;
+        left: 0;
+        --size: 100%;
+        height: 100vh;
+        width: 100%;
+        z-index: -1;
+        background-color: rgba(128, 128, 128, 0.618);
+    }
+
+    header nav ul {
+        flex-direction: column;
+    }
+
+    header nav a.active::after {
+        height: var(--link-height);
+        top: 0;
+        z-index: -1;
+        background-color: rgb(185, 244, 67);
+    }
+
+    header nav ul li a {
+        font-size: 16px;
+        padding-left: 1rem;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    header nav ul li a,
+    header nav ul li {
+        width: 100%;
+    }
+
+    header nav ul li {
+        --link-height: 2.4rem;
+        margin: 0 auto;
+        height: calc(var(--link-height) - 0.1rem);
+        padding: 0 0.4rem;
+        display: flex;
+        align-items: center;
+        margin-bottom: 3px;
     }
 }
 
@@ -588,8 +722,29 @@ footer .foot-note {
     }
 
     footer {
-        padding-left: 2rem;
+        padding: 2rem;
         padding-right: 2rem;
+        border-top: 1px rgba(45, 172, 43, 0.248) solid;
+        border-radius: 50px;
+        gap: 2.5rem;
+        background: #ededed23;
     }
 
+    footer .second-container .links-box {
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    footer .second-container .links-box .links {
+        width: 100%;
+    }
+
+    footer .second-container .links-box .links h3 {
+        border-bottom: 3px dotted rgb(225, 225, 225);
+        align-self: center;
+        padding-bottom: 1.4rem;
+        margin-bottom: 1.2rem;
+    }
 }
